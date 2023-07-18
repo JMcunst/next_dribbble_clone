@@ -5,6 +5,7 @@ import { NavLinks } from '@/constants'
 import ProfileMenu from './ProfileMenu'
 import Button from './Button'
 import AuthProviders from './AuthProviders'
+import { getCurrentUser } from '@/lib/session'
 
 const Navbar = async () => {
     const session = await getCurrentUser()

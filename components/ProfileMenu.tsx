@@ -1,6 +1,7 @@
+import { SessionInterface } from '@/common.types'
 import React from 'react'
 
-const ProfileMenu = () => {
+const ProfileMenu = ({ session }: { session: SessionInterface }) => {
   return (
     <div>ProfileMenu</div>
   )
