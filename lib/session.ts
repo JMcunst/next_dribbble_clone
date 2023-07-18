@@ -14,27 +14,30 @@ export const authOptions: NextAuthOptions = {
             clientId: process.env.GOOGLE_CLIENT_ID!,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
         }),
-    ], jwt: {
-        encode: ({ secret, token }) => {
-            const encodedToken = jsonwebtoken.sign(
-                {
-                    ...token,
-                    iss: "grafbase",
-                    exp: Math.floor(Date.now() / 1000) + 60 * 60,
-                },
-                secret
-            );
+    ],
+    // jwt: {
+    //     encode: ({ secret, token }) => {
+    //         const encodedToken = jsonwebtoken.sign(
+    //             {
+    //                 ...token,
+    //                 iss: "grafbase",
+    //                 exp: Math.floor(Date.now() / 1000) + 60 * 60,
+    //             },
+    //             secret
+    //         );
 
-            return encodedToken;
-        },
-        decode: async ({ secret, token }) => {
-            const decodedToken = jsonwebtoken.verify(token!, secret);
-            return decodedToken as JWT;
-        },
-    }, theme: {
+    //         return encodedToken;
+    //     },
+    //     decode: async ({ secret, token }) => {
+    //         const decodedToken = jsonwebtoken.verify(token!, secret);
+    //         return decodedToken as JWT;
+    //     },
+    // },
+    theme: {
         colorScheme: "light",
         logo: "/logo.svg",
-    }, callbacks: {
+    }, 
+    callbacks: {
         async session({ session }) {
             const email = session?.user?.email as string;
 
