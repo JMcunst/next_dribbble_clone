@@ -12,9 +12,9 @@ type Props = {
 }
 
 const CustomMenu = ({ title, state, filters, setState }: Props) => {
-  return (
-    <div>CustomMenu</div>
-  )
+    return (
+        <div>CustomMenu</div>
+    )
 }
 
 export default CustomMenu
